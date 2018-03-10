@@ -1,0 +1,4 @@
+{
+  "resource": "/votd",
+  "queryStringParameters": { "language": "en" }
+}
