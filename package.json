@@ -1,0 +1,25 @@
+{
+  "name": "ceaseless-api-lambda",
+  "version": "0.0.1",
+  "description": "A lambda function in NodeJs for the scripture APIs",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ceaseless-prayer/ceaseless-api-lambda.git"
+  },
+  "author": "bwjjohnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ceaseless-prayer/ceaseless-api-lambda/issues"
+  },
+  "homepage": "https://github.com/ceaseless-prayer/ceaseless-api-lambda",
+  "scripts": {
+    "setup": "./node_modules/.bin/node-lambda setup",
+    "test": "./node_modules/.bin/node-lambda run",
+    "package": "./node_modules/.bin/node-lambda package",
+    "deploy": "./node_modules/.bin/node-lambda deploy"
+  },
+  "devDependencies": {
+    "node-lambda": "^0.11.6"
+  }
+}
