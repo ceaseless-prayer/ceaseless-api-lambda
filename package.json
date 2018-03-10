@@ -20,9 +20,11 @@
     "package": "./node_modules/.bin/node-lambda package",
     "deploy": "./node_modules/.bin/node-lambda deploy --configFile deploy.env"
   },
-  "devDependencies": {
-    "node-lambda": "^0.11.6",
+  "dependencies": {
     "lodash": "^4.17.5",
-    "request": "^2.37.0"
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "node-lambda": "^0.11.6"
   }
 }

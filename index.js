@@ -80,11 +80,11 @@ var getLanguage = function(event, context){
 
 var getScripture = function(event, context, callback) {
   // if empty body, just pick a random verse
-  var reference = event["body"];
+  var reference = JSON.parse(event["body"]);
   if (_.isEmpty(event["body"])) {
     reference = votd[_.random(votd.length-1)];
   }
-  console.log("reference = " + reference);
+  console.log("reference: ", reference);
   var language = reference.language || 'en';
   var dam_id = getVolume(reference.book, language);
   var dbtUrl = 'http://dbt.io/text/verse?v=2&key=' +
@@ -115,6 +115,7 @@ var formatScripture = function (verses, language) {
       bible: 'ENGESV'
     };
   } else {
+    console.log("verses: ", verses);
     var citation = verses[0].book_name + ' ' +
       verses[0].chapter_id + ':' + verses[0].verse_id;
 
