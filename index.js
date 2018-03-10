@@ -86,27 +86,28 @@ var getScripture = function(event, context, callback) {
   }
   console.log("reference: ", reference);
   var language = reference.language || 'en';
-  var dam_id = getVolume(reference.book, language);
-  var dbtUrl = 'http://dbt.io/text/verse?v=2&key=' +
+  var version = reference.version;
+  var dam_id = getVolume(reference.book, language, version);
+  var dbpUrl = 'http://dbt.io/text/verse?v=2&key=' +
     dbpApiKey +
     '&book_id=' + reference.book +
     '&chapter_id=' + reference.chapter +
     '&verse_start=' + reference.verse_start +
     '&verse_end=' + reference.verse_end +
     '&dam_id=' + dam_id;
-  console.log('Getting verse from ' + dbtUrl);
+  console.log('Getting verse from ' + dbpUrl);
 
-  request.get({url:dbtUrl, json: true}, function (e, r, verses) {
+  request.get({url:dbpUrl, json: true}, function (e, r, verses) {
     if (e) {
       res.send(r.statusCode, e);
       callback(null, {statusCode: r.statusCode, body: e });
     } else {
-      callback(null, formatScripture(verses, language));
+      callback(null, formatDBPScripture(verses, language, version));
     }
   });
 };
 
-var formatScripture = function (verses, language) {
+var formatDBPScripture = function (verses, language, version) {
   if (_.isEmpty(verses)) {
     console.error('Failed to get verses.');
     return {
@@ -115,16 +116,15 @@ var formatScripture = function (verses, language) {
       bible: 'ENGESV'
     };
   } else {
-    console.log("verses: ", verses);
     var citation = verses[0].book_name + ' ' +
       verses[0].chapter_id + ':' + verses[0].verse_id;
 
     if (_.size(verses) > 1) {
       citation += '-' + _.last(verses).verse_id;
     }
-    citation += ' ' + getVolumeCode(language);
+    citation += ' ' + getVolumeCode(language, version);
 
-    var details = languageVolumeMap[language] || languageVolumeMap['default'];
+    var details = getDetailsByLanguage(language, version);
     return {
       statusCode: 200,
       body: JSON.stringify({
@@ -137,13 +137,19 @@ var formatScripture = function (verses, language) {
   }
 };
 
-var getVolume = function (book, language) {
-  var details = languageVolumeMap[language] || languageVolumeMap['default'];
+var getDetailsByLanguage = function(language, version) {
+  return languageVolumeMap[language + "-" + version]
+    || languageVolumeMap[language]
+    || languageVolumeMap['default'];
+}
+
+var getVolume = function (book, language, version) {
+  var details = getDetailsByLanguage(language, version);
   return ntBooks.indexOf(book) > -1 ? details.nt : details.ot;
 };
 
-var getVolumeCode = function (language) {
-  var details = languageVolumeMap[language] || languageVolumeMap['default'];
+var getVolumeCode = function (language, version) {
+  var details = getDetailsByLanguage(language, version);
   return details.code;
 };
 

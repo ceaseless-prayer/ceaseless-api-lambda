@@ -1,5 +1,5 @@
 {
   "resource": "/getScripture",
   "queryStringParameters": { "language": "en" },
-  "body": "{\"book\":\"Ps\",\"chapter\":\"51\",\"verse_start\":\"1\",\"verse_end\":\"19\",\"language\":\"en\"}"
+  "body": "{\"book\":\"Ps\",\"chapter\":\"51\",\"verse_start\":\"1\",\"verse_end\":\"19\",\"language\":\"en\",\"version\":\"KJV\"}"
 }

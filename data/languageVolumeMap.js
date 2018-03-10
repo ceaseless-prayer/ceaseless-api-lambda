@@ -35,6 +35,30 @@ module.exports = {
     ot: 'JPNCJVO2ET',
     bible: 'JPNCJV'
   },
+  'en': {
+    code: 'ESV',
+    nt: 'ENGESVN2ET',
+    ot: 'ENGESVO2ET',
+    bible: 'ENGESV'
+  },
+  'en_US': {
+    code: 'ESV',
+    nt: 'ENGESVN2ET',
+    ot: 'ENGESVO2ET',
+    bible: 'ENGESV'
+  },
+  'en-KJV': {
+    code: 'KJV',
+    nt: 'ENGNKVN2ET',
+    ot: 'ENGKJVO1ET',
+    bible: 'ENGKJV'
+  },
+  'en_US-KJV': {
+    code: 'KJV',
+    nt: 'ENGNKVN2ET',
+    ot: 'ENGKJVO1ET',
+    bible: 'ENGKJV'
+  },
   'default': {
     code: 'ESV',
     nt: 'ENGESVN2ET',
