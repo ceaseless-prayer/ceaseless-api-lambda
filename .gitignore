@@ -59,3 +59,6 @@ typings/
 
 # lambda packaged directory
 .lambda
+.env
+deploy.env
+event.json
