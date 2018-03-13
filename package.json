@@ -15,8 +15,9 @@
   "homepage": "https://github.com/ceaseless-prayer/ceaseless-api-lambda",
   "scripts": {
     "setup": "./node_modules/.bin/node-lambda setup",
-    "testVotd": "./node_modules/.bin/node-lambda run --eventFile votd.event.json --configFile deploy.en",
+    "testVotd": "./node_modules/.bin/node-lambda run --eventFile votd.event.json --configFile deploy.env",
     "testGetScripture": "./node_modules/.bin/node-lambda run --eventFile getScripture.event.json --configFile deploy.env",
+    "testGetAScriptureImage": "./node_modules/.bin/node-lambda run --eventFile getAScriptureImage.event.json --configFile deploy.env",
     "package": "./node_modules/.bin/node-lambda package",
     "deploy": "./node_modules/.bin/node-lambda deploy --configFile deploy.env"
   },

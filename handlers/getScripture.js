@@ -2,7 +2,7 @@
 
 const votd = require('../bible/votd'),
   _ = require('lodash'),
-  dbpUtils = require('./dbpUtils'),
+  dbpUtils = require('../bible/dbpUtils'),
   request = require('request'),
   dbpApiKey = process.env.DBP_API_KEY;
 
