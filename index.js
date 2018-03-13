@@ -1,7 +1,6 @@
 'use strict';
 
-const _ = require('lodash'),
-  handlers = require('./handlers');
+const handlers = require('./handlers');
 
 exports.handler = function(event, context, callback) {
   console.log('Beginning Execution');

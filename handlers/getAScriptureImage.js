@@ -15,17 +15,34 @@ function refreshImageList() {
       if (err) {
         reject(err);
       } else {
+        console.log('Refreshing image list', imageListRefreshDate);
+        let si = _.map(data.Contents, 'Key');
         imageListRefreshDate = Date.now();
-        scriptureImages = _.map(data.Content, 'Key');
-        resolve(scriptureImages);
+        resolve(si);
       }
     });
   });
 }
 
 function getAScriptureImage(event, context, callback) {
-  let pick = function() {
-    let selected = scriptureImages[_.random(scriptureImages.length - 1)];
+  let pick = function(si) {
+    if (!si || si.length === 0) {
+      si = scriptureImages;
+    } else {
+      scriptureImages = si;
+    }
+
+    if (si.length === 0) {
+      console.log('No scriptureImages available...');
+      return callback(null, {
+        statusCode: 500,
+        body: JSON.stringify({
+          response: 'No images available'
+        })
+      });
+    }
+
+    let selected = si[_.random(si.length - 1)];
     let selectedImageUrl = CDN_PREFIX + selected;
     let response = {
       statusCode: 200,
@@ -44,7 +61,9 @@ function getAScriptureImage(event, context, callback) {
     callback(null, response);
   };
 
-  if (Date.now() - imageListRefreshDate > 10000) {
+  console.log('Checking refresh:', Date.now(), imageListRefreshDate);
+  // refresh the list once an hour.
+  if (Date.now() - imageListRefreshDate > 1000 * 60 * 60) {
     refreshImageList()
       .then(pick)
       .catch(onerror);
