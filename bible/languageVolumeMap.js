@@ -59,6 +59,18 @@ module.exports = {
     ot: 'ENGKJVO1ET',
     bible: 'ENGKJV'
   },
+  'de_DE-L12': {
+    code: 'L12',
+    nt: 'GERL12N2ET',
+    ot: 'GERL12O2ET',
+    bible: 'GERL12'
+  },
+  'de_DE-D71': {
+    code: 'D71',
+    nt: 'GERD71N2ET',
+    ot: 'GERD71O2ET',
+    bible: 'GERD71'
+  },  
   'default': {
     code: 'ESV',
     nt: 'ENGESVN2ET',
