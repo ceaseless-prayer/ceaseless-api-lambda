@@ -49,13 +49,13 @@ module.exports = {
   },
   'en-KJV': {
     code: 'KJV',
-    nt: 'ENGNKVN2ET',
+    nt: 'ENGKJVN2ET',
     ot: 'ENGKJVO1ET',
     bible: 'ENGKJV'
   },
   'en_US-KJV': {
     code: 'KJV',
-    nt: 'ENGNKVN2ET',
+    nt: 'ENGKJVN2ET',
     ot: 'ENGKJVO1ET',
     bible: 'ENGKJV'
   },
