@@ -70,7 +70,13 @@ module.exports = {
     nt: 'GERD71N2ET',
     ot: 'GERD71O2ET',
     bible: 'GERD71'
-  },  
+  },
+  'es_ES-D71': {
+    code: 'D71',
+    nt: 'SPNWTC02ET',
+    ot: 'SPNWTC01ET',
+    bible: 'SPNWTC'
+  },   
   'default': {
     code: 'ESV',
     nt: 'ENGESVN2ET',
