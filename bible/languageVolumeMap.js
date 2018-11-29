@@ -71,7 +71,7 @@ module.exports = {
     ot: 'GERD71O2ET',
     bible: 'GERD71'
   },
-  'es_ES-D71': {
+  'es_ES-WTC': {
     code: 'WTC',
     nt: 'SPNWTC02ET',
     ot: 'SPNWTC01ET',
