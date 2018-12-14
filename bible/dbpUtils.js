@@ -5,9 +5,14 @@ const languageVolumeMap = require('./languageVolumeMap'),
   ntBooks = require('./ntBooks');
 
 function getDetailsByLanguage(language, version) {
+  if (!language || language.length < 2) {
+    language = 'en';
+  }
+
   return (
     languageVolumeMap[language + '-' + version] ||
     languageVolumeMap[language] ||
+    languageVolumeMap[language[0] + language[1]] || // use first two characters of language
     languageVolumeMap['default']
   );
 }
