@@ -47,6 +47,7 @@ function formatDBPScripture(verses, language, version) {
       citation += '-' + _.last(verses).verse_id;
     }
     citation += ' ' + getVolumeCode(language, version);
+    console.log("verses:" + JSON.stringify(verses));
 
     let details = getDetailsByLanguage(language, version);
     return {

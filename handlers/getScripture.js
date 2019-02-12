@@ -7,6 +7,11 @@ const votd = require('../bible/votd'),
   dbpApiKey = process.env.DBP_API_KEY;
 
 function getScripture(event, context, callback) {
+
+  if (!dbpApiKey) {
+    console.error("DBP_API_KEY is undefined!");
+    return;
+  }
   // if empty body, just pick a random verse
   let reference = JSON.parse(event['body']);
   if (_.isEmpty(event['body'])) {
