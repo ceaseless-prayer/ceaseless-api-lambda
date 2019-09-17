@@ -8,6 +8,13 @@ To get this working in your local development environment, run ```npm run setup`
 
 This will generate a .env and a deploy.env file
 Fill in the details in both. Then run ```npm run deploy``` to deploy the lambda to your AWS account.
+The deploy.env file contains the following variables:
+
+<code>
+DBP_API_KEY=
+IMAGE_BUCKET=
+CDN_PREFIX=
+</code>
 
 Note that in order to use the API, you need to configure API Gateway.
 Currently, this is a manual step. Setup a new Resource for each of the paths of this API. Add an Any method and link it to your lambda. Check off the lambda proxy checkbox. Deploy your API. Now you should be able to call the api and get a response with the URL generated for you.
