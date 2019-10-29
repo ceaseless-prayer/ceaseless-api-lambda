@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.208.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.13",
     "request": "^2.88.0"
   },
   "devDependencies": {
