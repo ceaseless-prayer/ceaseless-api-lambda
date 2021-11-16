@@ -22,7 +22,7 @@
     "deploy": "./node_modules/.bin/node-lambda deploy --configFile deploy.env"
   },
   "dependencies": {
-    "aws-sdk": "^2.208.0",
+    "aws-sdk": "^2.814.0",
     "lodash": "^4.17.5",
     "request": "^2.88.0"
   },
